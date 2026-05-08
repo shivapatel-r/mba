@@ -5,6 +5,14 @@ pipeline {
         maven 'Maven3'
         jdk 'JDK21'
     }
+    stage('SonarQube Scan') {
+         steps {
+             withSonarQubeEnv('SonarQube') {
+                 bat 'mvn sonar:sonar'
+             }
+         }
+     }
+
 
     stages {
 
