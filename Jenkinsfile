@@ -2,19 +2,19 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven3'
-        jdk 'JDK21'
+        maven 'Maven'
+        jdk 'jdk21'
     }
-    stage('SonarQube Scan') {
-         steps {
-             withSonarQubeEnv('SonarQube') {
-                 bat 'mvn sonar:sonar'
-             }
-         }
-     }
-
 
     stages {
+
+        stage('SonarQube Scan') {
+            steps {
+                withSonarQubeEnv('SonarQube') {
+                    bat 'mvn sonar:sonar'
+                }
+            }
+        }
 
         stage('Build') {
             steps {
