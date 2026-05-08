@@ -195,7 +195,7 @@ public class MovieServiceImpl implements MovieService {
     Movie mov = movieRepository.findByMovieNameAndTheatreName(addMovieRequestDto.getMovieName(), addMovieRequestDto.getTheatreName());
 
     if (mov != null) {
-      log.error("Duplicate movie detected: {} in theatre: {}", addMovieRequestDto.getMovieName(), addMovieRequestDto.getTheatreName());
+      log.error("Duplicate Movie detected: {} in theatre: {}", addMovieRequestDto.getMovieName(), addMovieRequestDto.getTheatreName());
       throw new MovieAlreadyExistsException("Movie already exists in this theatre");
     }
   }
