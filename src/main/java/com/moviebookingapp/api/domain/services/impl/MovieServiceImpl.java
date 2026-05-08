@@ -189,7 +189,7 @@ public class MovieServiceImpl implements MovieService {
 
   private void validateRequestDto(AddMovieRequestDto addMovieRequestDto) {
       if(addMovieRequestDto.getTotalTickets() > 250){
-          throw new SeatLimitExceededException("Seat capacity should be less than 250");
+          throw new SeatLimitExceededException("Seat Capacity should be less than 250");
       }
 
     Movie mov = movieRepository.findByMovieNameAndTheatreName(addMovieRequestDto.getMovieName(), addMovieRequestDto.getTheatreName());
